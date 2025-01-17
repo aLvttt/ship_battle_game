@@ -1,7 +1,4 @@
-from battlefield import Field
-from ships import Ship
-from player import Player
-
+from core import Field, Ship, Player
 '''
 
 # блок типо регестрации
@@ -10,6 +7,13 @@ playername = input()
 print(f"Hello, {playername}! Let's start the game!")
 
 '''
+player_types = ['player', 'bot']
+player = Player(player_types[0])
+bot = Player(player_types[1])
 
-Field = Field()
-print(Field.field)
+player_field = Field(player)
+bot_field = Field(bot)
+
+print(player_field.owner)
+print(bot_field.owner)
+#print(Field.__dict__.values())
