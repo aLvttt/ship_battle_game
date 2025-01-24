@@ -15,14 +15,22 @@ class Field():
         pass
 
     def display(self):
-        pass
+        for line in self.field:
+            println = ''
+            for cell in line:
+                println += cell.status + ' '
+            print(println)   
+        
 
 class Cell():
     def __init__(self, cord_x, cord_y):
         self.cord_x = cord_x
         self.cord_y = cord_y
-        self.list_of_statuses = ['empty', 'misshit', 'shiphit', 'ship']
+        self.list_of_statuses = ['#', '0', 'X', '[]'] # '#' - пустая клетка, '0' - промах, 'X' - попадание, '[]' - корабль
         self.status = self.list_of_statuses[0]
+
+    def update_status():
+        pass
 
 
 class Ship():
@@ -30,15 +38,18 @@ class Ship():
         self.size = size
         self.cord_x = cord_x
         self.cord_y = cord_y
-        self.dir = dir
+        self.dir = dir # horizontal / vertical
         self.list_of_shipstatus = ['alive', 'rip']
         self.shipstatus = self.list_of_shipstatus[0]
+
+
 
     def hit(self, x, y):
         pass
 
-
 class Player():
-    def __init__(self, type):
+    def __init__(self, type, name, ships):
         self.type = type
+        self.name = name
+        self.ships = ships
         
